@@ -1,0 +1,32 @@
+version: '3.4'
+services:
+  sentinel1:
+    image: redis
+    restart: always
+    container_name: redis-sentinel-1
+    #network_mode: "host"
+    command: redis-sentinel /root/docker/sentinel/sentinel1.conf    #自定义路径，可更改，但是需要和volumes中的路径相同
+    ports:
+      - 26380:26380
+    volumes:
+      - ./sentinel1.conf:/root/docker/sentinel/sentinel1.conf
+  sentinel2:
+    image: redis
+    restart: always
+    container_name: redis-sentinel-2
+    #network_mode: "host"
+    command: redis-sentinel /root/docker/sentinel/sentinel2.conf
+    ports:
+      - 26381:26381
+    volumes:
+      - ./sentinel2.conf:/root/docker/sentinel/sentinel2.conf
+  sentinel3:
+    image: redis
+    restart: always
+    container_name: redis-sentinel-3
+    #network_mode: "host"
+    command: redis-sentinel /root/docker/sentinel/sentinel3.conf
+    ports:
+      - 26382:26382
+    volumes:
+      - ./sentinel3.conf:/root/docker/sentinel/sentinel3.conf
