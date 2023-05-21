@@ -1,6 +1,6 @@
 ydl:
   mysql:
-    database: ydl_sms
+    database: pd-sms
   swagger:
     enabled: true
     docket:
@@ -24,8 +24,8 @@ spring:
     database: 1
     #host: 192.168.0.201 # Redis服务器地址
     #port: 7001 # Redis服务器连接端口
-    password: 123456
-    timeout: 10000ms
+    password: 403630
+    timeout: 30000ms
     lettuce:
       pool:
         max-active: 200
@@ -35,6 +35,6 @@ spring:
     sentinel:
       master: mymaster
       nodes:
-        - 192.168.80.100:26380
-        - 192.168.80.100:26381
-        - 192.168.80.100:26382
+        - 47.109.59.20:7000
+        - 47.109.59.20:7001
+        - 47.109.59.20:7002

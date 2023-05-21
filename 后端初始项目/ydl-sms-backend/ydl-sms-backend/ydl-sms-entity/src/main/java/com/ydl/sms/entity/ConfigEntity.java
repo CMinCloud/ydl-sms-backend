@@ -21,10 +21,10 @@ public class ConfigEntity extends BaseEntity {
     private String name;
 
     @ApiModelProperty(value = "平台")
-    private String platform;
+    private String platform;        // 比如阿里云、梦网平台
 
     @ApiModelProperty(value = "域名")
-    private String domain;
+    private String domain;          // 平台对应的域名
 
     @ApiModelProperty(value = "秘钥id")
     private String accessKeyId;

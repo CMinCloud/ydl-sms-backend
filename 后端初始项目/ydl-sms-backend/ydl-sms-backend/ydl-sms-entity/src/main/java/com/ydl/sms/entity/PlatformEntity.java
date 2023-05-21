@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * 接入平台
+ * 接入平台：公司内部平台：比如是销售部还是运营部、还是技术部
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

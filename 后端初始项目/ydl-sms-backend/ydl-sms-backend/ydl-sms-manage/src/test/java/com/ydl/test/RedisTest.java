@@ -14,9 +14,15 @@ public class RedisTest {
     @Autowired
     private RedisTemplate redisTemplate;
 
+    /*通过通道发送短信*/
     @Test
     public void testSendToRedis(){
         redisTemplate.convertAndSend("MYTOPIC", "im itnanaoshi123");
+    }
+
+    @Test
+    public void testOpsForList(){
+
     }
 
 }

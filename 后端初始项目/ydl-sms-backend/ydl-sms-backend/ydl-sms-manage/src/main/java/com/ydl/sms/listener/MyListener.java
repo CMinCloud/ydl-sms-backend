@@ -5,14 +5,21 @@ import org.springframework.data.redis.connection.Message;
 import org.springframework.data.redis.connection.MessageListener;
 import org.springframework.stereotype.Component;
 
-//普通类--》reids监听类
+/**
+ * @Author：CM
+ * @Package：com.ydl.sms.listener
+ * @Project：ydl-sms-backend
+ * @name：MyListener
+ * @Date：2023/5/21 18:00
+ * @Filename：MyListener
+ */
+
 @Component
 @Slf4j
 public class MyListener implements MessageListener {
 
-    //接受到redis消息时，干的事儿
     @Override
     public void onMessage(Message message, byte[] bytes) {
-        log.info("接收到了消息：{}",message);
+        log.info("收到了消息：" + message);
     }
 }

@@ -12,7 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
 import java.util.Map;
+
+import static com.ydl.sms.model.ServerTopic.INIT_CONNECT;
 
 /**
  * 通道配置表
@@ -39,9 +42,9 @@ public class ConfigServiceImpl extends ServiceImpl<ConfigMapper, ConfigEntity> i
         wrapper.orderByDesc(ConfigEntity::getLevel);
         wrapper.last("limit 1");
         ConfigEntity configEntity = this.getOne(wrapper);
-        if(configEntity == null){
+        if (configEntity == null) {
             entity.setLevel(1);
-        }else {
+        } else {
             entity.setLevel(configEntity.getLevel() + 1);
         }
     }
@@ -51,25 +54,25 @@ public class ConfigServiceImpl extends ServiceImpl<ConfigMapper, ConfigEntity> i
         // TODO 发送消息，通知短信发送服务更新内存中的通道优先级
         //1 获取存活发送端
         Map map = redisTemplate.opsForHash().entries("SERVER_ID_HASH");
-        log.info("全部发送端有："+map);
-
-        //获取当前时间
+        log.info("发送端有：" + map);
+//        获取当前时间
         long currentTimeMillis = System.currentTimeMillis();
-
         for (Object key : map.keySet()) {
-            Object value = map.get(key);
-            long lastTiem = Long.parseLong(value.toString());
-            //某个实例未超过5分钟 这个服务上线的呢
-            if(currentTimeMillis-lastTiem<(1000*60*5)){
-                //2 删除已经redis缓存的通道优先级
+            // 获取存放的ttl并比较
+            long lastTime = Long.parseLong(map.get(key).toString());
+//            Duration duration = Duration.between(lastTime,currentTimeMillis);
+            if (currentTimeMillis - lastTime < (1000 * 60 * 5)) {       //说明该服务未下线，可以发送
                 redisTemplate.delete("listForConnect");
-
-                //3通知 优先级变了
-                ServerTopic serverTopic = ServerTopic.builder().option(ServerTopic.INIT_CONNECT).value(key.toString()).build();
-                redisTemplate.convertAndSend("TOPIC_HIGH_SERVER",serverTopic.toString());
-
-                return;
+//                发布消息
+                redisTemplate.convertAndSend("TOPIC_HIGH_SERVER",
+                        ServerTopic.builder()       //使用建造者模式显示注入参数
+                                .option(INIT_CONNECT)
+                                .value(key.toString())
+                                .build().toString());
+                log.info("发送消息通知短信发送服务重新构建通道");
+                return; //只要有一个可以发送的客户端（短信通信商）就跳出服务
             }
+//            超过五分钟没有更新TTL：说明该服务可能下线了,可以剔除
         }
     }
 }

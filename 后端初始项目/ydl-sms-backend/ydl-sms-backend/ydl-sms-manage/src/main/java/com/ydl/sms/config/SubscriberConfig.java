@@ -34,7 +34,8 @@ public class SubscriberConfig {
 
         //可以添加多个监听订阅频道
         //当前监听的是通道：MYTOPIC
-        redisMessageListenerContainer.addMessageListener(new MessageListenerAdapter(myListener), new PatternTopic("MYTOPIC"));//表示往MYTOPIC通道内发布一个消息就可被监听得到
+        redisMessageListenerContainer.
+                addMessageListener(new MessageListenerAdapter(myListener), new PatternTopic("MYTOPIC"));//表示往MYTOPIC通道内发布一个消息就可被监听得到
 
         return redisMessageListenerContainer;
     }

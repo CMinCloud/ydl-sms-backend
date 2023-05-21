@@ -3,9 +3,9 @@ ydl:
     ip: localhost
     port: 3306
     driverClassName: com.mysql.cj.jdbc.Driver
-    database: ydl_sms
+    database: pd-sms
     username: root
-    password: root
+    password: 403630
   database:
     isBlockAttack: false
 spring:

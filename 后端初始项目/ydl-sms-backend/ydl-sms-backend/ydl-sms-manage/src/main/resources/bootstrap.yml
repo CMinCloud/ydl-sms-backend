@@ -17,13 +17,13 @@ spring:
       config:
         server-addr: 127.0.0.1:8848 #${ydl.nacos.ip}:${ydl.nacos.port}
         file-extension: yml
-        namespace: e071f513-db01-48d1-a14e-275cea161cb9 #${ydl.nacos.namespace}
+        namespace: f097b74f-e55e-46c1-b2d8-1d054b933190 #${ydl.nacos.namespace}
         shared-dataids: common.yml,redis.yml,mysql.yml
         refreshable-dataids: common.yml
         enabled: true
       discovery:
         server-addr: 127.0.0.1:8848 #${ydl.nacos.ip}:${ydl.nacos.port}
-        namespace: e071f513-db01-48d1-a14e-275cea161cb9 #${ydl.nacos.namespace}
+        namespace: f097b74f-e55e-46c1-b2d8-1d054b933190 #${ydl.nacos.namespace}
         metadata:
           management.context-path: ${server.servlet.context-path:}${spring.mvc.servlet.path:}${management.endpoints.web.base-path:}
 logging:

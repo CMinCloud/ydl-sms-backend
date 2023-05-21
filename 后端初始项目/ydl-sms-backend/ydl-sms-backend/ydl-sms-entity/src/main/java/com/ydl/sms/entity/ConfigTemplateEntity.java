@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * 配置—模板表
+ * 配置—模板表：配置和短信模板的多对多关系
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

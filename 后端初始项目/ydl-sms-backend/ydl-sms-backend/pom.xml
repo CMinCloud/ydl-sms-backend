@@ -21,6 +21,7 @@
         <module>ydl-sms-server</module>
         <module>ydl-sms-api</module>
         <module>ydl-sms-manage</module>
+        <module>ydl-sms-sdk</module>
     </modules>
 
     <profiles>
@@ -38,7 +39,7 @@
                 <pom.nacos.ip>127.0.0.1</pom.nacos.ip>
                 <pom.nacos.port>8848</pom.nacos.port>
                 <!--Nacos配置中心命名空间,用于支持多环境.这里必须使用ID，不能使用名称,默认为空-->
-                <pom.nacos.namespace>e071f513-db01-48d1-a14e-275cea161cb9</pom.nacos.namespace>
+                <pom.nacos.namespace>f097b74f-e55e-46c1-b2d8-1d054b933190</pom.nacos.namespace>
             </properties>
         </profile>
         <!-- 测试环境 -->
@@ -131,16 +132,16 @@
                 <version>${project.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.ydl</groupId>
-                <artifactId>ydl-auth-entity</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.ydl</groupId>
-                <artifactId>ydl-auth-api</artifactId>
-                <version>${project.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.ydl</groupId>-->
+<!--                <artifactId>ydl-auth-entity</artifactId>-->
+<!--                <version>${project.version}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>com.ydl</groupId>-->
+<!--                <artifactId>ydl-auth-api</artifactId>-->
+<!--                <version>${project.version}</version>-->
+<!--            </dependency>-->
 
             <!-- ydl-tools -->
             <dependency>
@@ -148,21 +149,21 @@
                 <artifactId>ydl-tools-common</artifactId>
                 <version>${ydl-tools.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.ydl</groupId>
-                <artifactId>ydl-tools-j2cache</artifactId>
-                <version>${ydl-tools.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.ydl</groupId>-->
+<!--                <artifactId>ydl-tools-j2cache</artifactId>-->
+<!--                <version>${ydl-tools.version}</version>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>com.ydl</groupId>
                 <artifactId>ydl-tools-user</artifactId>
                 <version>${ydl-tools.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.ydl</groupId>
-                <artifactId>ydl-tools-core</artifactId>
-                <version>${ydl-tools.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.ydl</groupId>-->
+<!--                <artifactId>ydl-tools-core</artifactId>-->
+<!--                <version>${ydl-tools.version}</version>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>com.ydl</groupId>
                 <artifactId>ydl-tools-databases</artifactId>
@@ -188,11 +189,11 @@
                 <artifactId>ydl-tools-validator</artifactId>
                 <version>${ydl-tools.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.ydl</groupId>
-                <artifactId>ydl-tools-jwt</artifactId>
-                <version>${ydl-tools.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.ydl</groupId>-->
+<!--                <artifactId>ydl-tools-jwt</artifactId>-->
+<!--                <version>${ydl-tools.version}</version>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>com.ydl</groupId>
                 <artifactId>ydl-tools-xss</artifactId>
@@ -227,23 +228,23 @@
             </dependency>
 
             <!-- FastDFS文件 -->
-            <dependency>
-                <groupId>com.github.tobato</groupId>
-                <artifactId>fastdfs-client</artifactId>
-                <version>${tobato-fastdfs-client.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.github.tobato</groupId>-->
+<!--                <artifactId>fastdfs-client</artifactId>-->
+<!--                <version>${tobato-fastdfs-client.version}</version>-->
+<!--            </dependency>-->
             <!-- 七牛依赖 -->
-            <dependency>
-                <groupId>com.qiniu</groupId>
-                <artifactId>qiniu-java-sdk</artifactId>
-                <version>${qiniu-java-sdk}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.qiniu</groupId>-->
+<!--                <artifactId>qiniu-java-sdk</artifactId>-->
+<!--                <version>${qiniu-java-sdk}</version>-->
+<!--            </dependency>-->
             <!-- Minio -->
-            <dependency>
-                <groupId>io.minio</groupId>
-                <artifactId>minio</artifactId>
-                <version>${minio.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>io.minio</groupId>-->
+<!--                <artifactId>minio</artifactId>-->
+<!--                <version>${minio.version}</version>-->
+<!--            </dependency>-->
 
             <dependency>
                 <groupId>io.springfox</groupId>
@@ -251,11 +252,11 @@
                 <version>${springfox.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.github.whvcse</groupId>
-                <artifactId>easy-captcha</artifactId>
-                <version>${easy-captcha.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.github.whvcse</groupId>-->
+<!--                <artifactId>easy-captcha</artifactId>-->
+<!--                <version>${easy-captcha.version}</version>-->
+<!--            </dependency>-->
         </dependencies>
     </dependencyManagement>
 

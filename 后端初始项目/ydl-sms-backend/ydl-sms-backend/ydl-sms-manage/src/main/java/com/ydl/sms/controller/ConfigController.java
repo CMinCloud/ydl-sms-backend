@@ -143,7 +143,7 @@ public class ConfigController extends BaseController {
             LambdaUpdateWrapper<ConfigEntity> updateWrapper = new LambdaUpdateWrapper();
             updateWrapper.eq(BaseEntity::getId, ids.get(i));
             updateWrapper.eq(ConfigEntity::getIsEnable, 1);
-            updateWrapper.set(ConfigEntity::getLevel, (i + 1));
+            updateWrapper.set(ConfigEntity::getLevel, (i + 1));     //在集合中的顺序就是该通道的优先级
             configService.update(updateWrapper);
         }
         configService.sendUpdateMessage();

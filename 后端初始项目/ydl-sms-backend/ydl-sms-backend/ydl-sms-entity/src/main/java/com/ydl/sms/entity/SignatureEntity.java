@@ -29,4 +29,7 @@ public class SignatureEntity extends BaseEntity {
 	@ApiModelProperty(value = "备注")
 	private String remark;
 
+
+
+
 }

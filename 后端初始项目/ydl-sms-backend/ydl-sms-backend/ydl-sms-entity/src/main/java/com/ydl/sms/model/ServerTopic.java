@@ -21,6 +21,7 @@ public class ServerTopic {
         return JSON.parseObject(deserialize, ServerTopic.class);
     }
 
+    @Override
     public String toString() {
         return JSON.toJSONString(this);
     }

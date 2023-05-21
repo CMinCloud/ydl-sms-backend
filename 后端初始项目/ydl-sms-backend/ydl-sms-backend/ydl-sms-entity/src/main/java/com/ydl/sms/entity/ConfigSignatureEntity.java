@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * 配置—签名表
+ * 配置—签名表：配置和签名的多对多关系
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

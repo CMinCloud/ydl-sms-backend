@@ -11,6 +11,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.env.Environment;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -19,6 +20,7 @@ import java.net.InetAddress;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableHystrix
+//@EnableAspectJAutoProxy             //使用aop暴露时才一定要加
 @EnableFeignClients(value = {
         "com.ydl.sms",
 })

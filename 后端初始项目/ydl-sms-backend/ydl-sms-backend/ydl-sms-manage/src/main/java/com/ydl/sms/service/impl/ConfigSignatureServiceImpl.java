@@ -26,12 +26,12 @@ public class ConfigSignatureServiceImpl extends ServiceImpl<ConfigSignatureMappe
             LambdaQueryWrapper<ConfigSignatureEntity> wrapper = new LambdaQueryWrapper<>();
             wrapper.eq(ConfigSignatureEntity::getConfigId, entity.getId());
 
-            // 数据库中的关联项
+            // 数据库中的关联项(先删除再新增)
             List<ConfigSignatureEntity> dbList = this.list(wrapper);
             List<String> dbSignatureIds = dbList.stream().map(item -> item.getSignatureId()).collect(Collectors.toList());
-            // 删除
+            // 得到需要删除的签名id：
             List<String> deleteIds = dbSignatureIds.stream().filter(item -> !entity.getSignatureIds().contains(item)).collect(Collectors.toList());
-            // 新增
+            // 需要新增的签名id
             List<String> addIds = entity.getSignatureIds().stream().filter(item -> !dbSignatureIds.contains(item)).collect(Collectors.toList());
 
 
